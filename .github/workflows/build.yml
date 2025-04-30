@@ -24,7 +24,7 @@ jobs:
         make
 
     - name: Upload CIA
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v3.1.3
       with:
         name: stream2ds.cia
         path: build/stream2ds.cia
