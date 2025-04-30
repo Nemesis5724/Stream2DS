@@ -1,0 +1,30 @@
+name: Build 3DS CIA
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install devkitPro
+      run: |
+        sudo apt update
+        sudo apt install -y wget gnupg
+        echo "deb https://apt.devkitpro.org stable main" | sudo tee /etc/apt/sources.list.d/devkitpro.list
+        wget https://apt.devkitpro.org/devkitpro-keyring.gpg
+        sudo apt-key add devkitpro-keyring.gpg
+        sudo apt update
+        sudo apt install -y devkitpro-pacman
+        sudo dkp-pacman -Sy --noconfirm 3ds-dev
+
+    - name: Build project
+      run: |
+        make
+
+    - name: Upload CIA
+      uses: actions/upload-artifact@v3
+      with:
+        name: stream2ds.cia
+        path: build/stream2ds.cia
