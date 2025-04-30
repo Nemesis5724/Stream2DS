@@ -1,0 +1,17 @@
+BasicInfo:
+ Title        : Stream2DS
+ CompanyCode  : "0000"
+ ProductCode  : CTR-P-STRM
+ ContentType  : Application
+ Logo         : Nintendo
+
+TitleInfo:
+ UniqueId     : 0x00000000
+ Category     : Application
+
+Option:
+ UseOnSD      : true
+ EnableCompress  : true
+ FreeProductCode : true
+ EnableCrypt     : false
+ MediaFootPadding: false

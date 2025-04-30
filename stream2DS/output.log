@@ -1,0 +1,3 @@
+mkdir -p build
+C:/devkitARM/bin/arm-none-eabi-gcc -O2 -Wall -mfloat-abi=softfp -march=armv6k -mtune=mpcore -mthumb -IC:/devkitPro/libctru/include -c source/main.c -o build/main.o
+make: *** [Makefile:27: build/main.o] Error 1
